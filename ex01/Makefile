@@ -6,7 +6,7 @@
 #    By: ade-beco <ade-beco@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/27 12:04:14 by ade-beco          #+#    #+#              #
-#    Updated: 2023/09/27 12:36:31 by ade-beco         ###   ########.fr        #
+#    Updated: 2023/09/27 12:40:11 by ade-beco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,6 @@ CC 			=	cc
 
 LIBC		=	ar rc
 
-LIBR		=	ranlib
-
 FLAGS		=	-Wall -Wextra -Werror
 
 INCL		=	-I ./includes
@@ -29,23 +27,18 @@ INCL		=	-I ./includes
 all:		$(OBJS) $(NAME)
 
 %.o:		%.c
-				@echo "Compiling $< ..."
+				@echo $(CC) $(FLAGS) -c $(INCL) $< -o $(<:.c=.o)
 				@$(CC) $(FLAGS) -c $(INCL) $< -o $(<:.c=.o)
-				@echo "Compiling Finish !"
 
 $(NAME):	$(OBJS)
-				@echo "Creating executable $@"
+				@echo $(LIBC) $(NAME) $(OBJS)
 				@$(LIBC) $(NAME) $(OBJS)
-				@$(LIBR) $(NAME)
-				@echo "Executable created !"
 clean:
-				@echo "Cleaning..."
+				@echo rm -f $(OBJS) $(BONUS_OBJS)
 				@rm -f $(OBJS) $(BONUS_OBJS)
-				@echo "Cleaned up !"
 fclean:		clean
-				@echo "Cleaning...."
+				@echo rm -f $(NAME)
 				@rm -f $(NAME)
-				@echo "Cleaned up !"
 
 re:			fclean all
 
