@@ -6,7 +6,7 @@
 #    By: ade-beco <ade-beco@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/27 12:04:14 by ade-beco          #+#    #+#              #
-#    Updated: 2023/09/27 12:47:22 by ade-beco         ###   ########.fr        #
+#    Updated: 2023/09/28 11:23:13 by ade-beco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ all:		$(OBJS) $(NAME)
 $(NAME):	$(OBJS)
 				$(LIBC) $(NAME) $(OBJS)
 clean:
-				rm -f $(OBJS) $(BONUS_OBJS)
+				rm -f $(OBJS)
 fclean:		clean
 				rm -f $(NAME)
 
